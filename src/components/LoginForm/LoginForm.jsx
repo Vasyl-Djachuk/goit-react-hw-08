@@ -10,7 +10,7 @@ const contactSchema = Yup.object().shape({
   password: Yup.string().min(7, 'Too Short!').required('Required'),
 });
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -60,3 +60,4 @@ export const LoginForm = () => {
     </Formik>
   );
 };
+export default LoginForm;

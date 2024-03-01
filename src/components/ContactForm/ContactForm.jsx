@@ -2,8 +2,15 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact, editContact } from '../../redux/contacts/operations';
+import {
+  selectDelModal,
+  selectEditModal,
+  selectModalContact,
+} from '../../redux/modal/selectors';
+import { setEditModal } from '../../redux/modal/slice';
+import { refreshUser } from '../../redux/author/operations';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -15,14 +22,16 @@ const contactSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export const ContactForm = () => {
-  const dispatch = useDispatch();
-  const initialValues = {
-    name: '',
-    number: '',
-  };
+const ContactForm = () => {
   const nameId = useId();
   const telId = useId();
+  const isEditModalOpen = useSelector(selectEditModal);
+  const contact = useSelector(selectModalContact);
+  const dispatch = useDispatch();
+  const initialValues = {
+    name: isEditModalOpen ? contact.name : '',
+    number: isEditModalOpen ? contact.number : '',
+  };
 
   const handleMaskChange = e => {
     if (e.target.name !== `number`) return;
@@ -34,8 +43,15 @@ export const ContactForm = () => {
   };
 
   const handleSubmit = (values, actions) => {
-    values.id;
-    dispatch(addContact(values));
+    if (isEditModalOpen) {
+      // values.id = contact.id;
+      dispatch(editContact([contact.id, values]));
+      dispatch(setEditModal(false));
+      dispatch(refreshUser());
+    } else {
+      values.id;
+      dispatch(addContact(values));
+    }
     actions.resetForm();
   };
 
@@ -69,9 +85,11 @@ export const ContactForm = () => {
           <ErrorMessage className={css.error} name="number" component="div" />
         </div>
         <button className={css.button} type="submit">
-          Add contact
+          {isEditModalOpen ? `Save` : `Add contact`}
         </button>
       </Form>
     </Formik>
   );
 };
+
+export default ContactForm;

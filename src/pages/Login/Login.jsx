@@ -1,4 +1,4 @@
-import { LoginForm } from '../../components/LoginForm/LoginForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 export default function Login() {

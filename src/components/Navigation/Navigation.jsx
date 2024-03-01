@@ -1,20 +1,27 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 import css from './Navigation.module.css';
+import Link from '@mui/material/Link';
 
-export const Navigation = () => {
+const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <nav>
-      <NavLink className={css.link} to="/">
+      <Link color="inherit" href="/" underline="none" className={css.link}>
         Home
-      </NavLink>
+      </Link>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
+        <Link
+          color="inherit"
+          href="/contacts"
+          underline="none"
+          className={css.link}
+        >
           Contacts
-        </NavLink>
+        </Link>
       )}
     </nav>
   );
 };
+export default Navigation;

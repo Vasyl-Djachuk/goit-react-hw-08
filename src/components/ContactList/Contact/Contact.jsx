@@ -1,7 +1,9 @@
 import css from './Contact.module.css';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa6';
-export const Contact = ({ id, names, number, handleDeleteClick }) => {
+import { FaRegEdit } from 'react-icons/fa';
+
+const Contact = ({ id, names, number, handleDeleteClick, handleEdit }) => {
   return (
     <div className={css.wrapper}>
       <ul className={css.list}>
@@ -14,9 +16,14 @@ export const Contact = ({ id, names, number, handleDeleteClick }) => {
           <p>{number}</p>
         </li>
       </ul>
-      <button onClick={handleDeleteClick} className={css.button} data-id={id}>
+      <button type="button" onClick={() => handleEdit(id)}>
+        <FaRegEdit />
+      </button>
+      <button onClick={() => handleDeleteClick(id)} className={css.button}>
         Delete
       </button>
     </div>
   );
 };
+
+export default Contact;

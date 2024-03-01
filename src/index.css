@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -54,7 +54,8 @@ ul {
   padding: 0;
 }
 #root {
+  font-family: Roboto, sans-serif;
   width: 1440px;
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 0 20px;
 }
