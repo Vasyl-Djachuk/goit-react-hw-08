@@ -6,8 +6,9 @@ import { setDeleteModal, setEditModal } from '../../redux/modal/slice';
 import { selectDelModal, selectEditModal } from '../../redux/modal/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
 import DeleteModal from '../DeletModal/DeleteModal';
-import EditModal from '../EditModal/EditModal';
+
 import ContactForm from '../ContactForm/ContactForm';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const customStyles = {
   content: {
@@ -38,14 +39,24 @@ const DeleteContactModal = () => {
   // }
 
   return (
-    <div>
+    <div className={css.container}>
       <Modal
         isOpen={isEditModalOpen || isDeleteModalOpen}
         onRequestClose={closeModal}
         style={customStyles}
       >
         {isDeleteModalOpen && <DeleteModal />}
-        {isEditModalOpen && <ContactForm />}
+
+        {isEditModalOpen && (
+          <div className={css.container}>
+            <ContactForm />
+            <IoIosCloseCircleOutline
+              onClick={closeModal}
+              size="34"
+              className={css.icon}
+            />
+          </div>
+        )}
       </Modal>
     </div>
   );

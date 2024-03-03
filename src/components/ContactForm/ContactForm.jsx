@@ -9,8 +9,10 @@ import {
   selectEditModal,
   selectModalContact,
 } from '../../redux/modal/selectors';
-import { setEditModal } from '../../redux/modal/slice';
+import { setAddContactModal, setEditModal } from '../../redux/modal/slice';
 import { refreshUser } from '../../redux/author/operations';
+import { FaUser } from 'react-icons/fa6';
+import { FaPhoneAlt } from 'react-icons/fa';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -46,11 +48,13 @@ const ContactForm = () => {
     if (isEditModalOpen) {
       // values.id = contact.id;
       dispatch(editContact([contact.id, values]));
+
       dispatch(setEditModal(false));
       dispatch(refreshUser());
     } else {
       values.id;
       dispatch(addContact(values));
+      dispatch(setAddContactModal(false));
     }
     actions.resetForm();
   };
@@ -61,27 +65,39 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       validationSchema={contactSchema}
     >
-      <Form className={css.form}>
+      <Form className={css.form} autoComplete="off">
+        <p className={css.title}>
+          {isEditModalOpen ? 'Edit contact' : 'Create new contact'}
+        </p>
         <div className={css.wrapper}>
-          <label htmlFor={nameId}>Name</label>
           <Field
             className={css.input}
             type="text"
             name="name"
             id={nameId}
+            required
           ></Field>
+          <label className={css.label} htmlFor={nameId}>
+            Name
+          </label>
+          <FaUser className={css.userIcon} />
           <ErrorMessage className={css.error} name="name" component="div" />
         </div>
 
         <div className={css.wrapper}>
-          <label htmlFor={telId}>Number</label>
           <Field
             className={css.input}
             onInput={handleMaskChange}
             type="text"
             name="number"
             id={telId}
+            placeholder="111-11-11 "
+            required
           ></Field>
+          <label className={css.label} htmlFor={telId}>
+            Number
+          </label>
+          <FaPhoneAlt className={css.userIcon} />
           <ErrorMessage className={css.error} name="number" component="div" />
         </div>
         <button className={css.button} type="submit">

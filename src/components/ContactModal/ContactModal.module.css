@@ -1,0 +1,17 @@
+.container {
+  width: 400px;
+  position: relative;
+  border-radius: 12px;
+}
+.icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  color: rgb(105, 105, 105, 0.4);
+  transition: color 250ms linear;
+}
+.icon:hover {
+  color: rgb(105, 105, 105);
+}

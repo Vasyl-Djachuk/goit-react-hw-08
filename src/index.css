@@ -28,6 +28,7 @@ body {
   min-height: 100vh;
   background-color: #ffffff;
   color: #000000;
+  position: relative;
 }
 
 h1 {
@@ -58,4 +59,5 @@ ul {
   width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
+  position: static;
 }

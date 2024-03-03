@@ -1,5 +1,5 @@
 .container {
-  width: 500px;
+  /* width: 420px; */
   position: relative;
   padding-top: 25px;
   padding-bottom: 20px;
@@ -20,24 +20,39 @@
   border: none;
   background-color: transparent;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -10px;
+  right: -10px;
   padding: 6px;
   cursor: pointer;
+  color: rgb(88, 87, 87, 0.4);
+  transition: color 250ms linear;
+}
+.close:hover {
+  color: rgb(88, 87, 87, 0.8);
 }
 .closeIcon {
+  color: inherit;
 }
 .battonWrapper {
   display: flex;
   justify-content: space-between;
-  padding-left: 100px;
-  padding-right: 100px;
 }
 .button {
-  border-radius: 10px;
   border: none;
+  width: 100px;
+  height: 40px;
+  outline: transparent;
+  background-color: #54abf3;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 250ms linear;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 10px;
+  justify-content: center;
+}
+.button:hover {
+  background-color: #2196f3;
+  color: black;
 }

@@ -7,11 +7,8 @@ export const selectEditModal = state => state.modal.edit;
 
 export const selectModalID = state => state.modal.id;
 
-// export const selectModalContact = state => {
-//   const contacts = selectAllContacts(state);
-//   const id = selectModalID(state);
-//   return contacts.filter(contact => contact.id === id);
-// };
+export const selectAddModal = state => state.modal.addIsOpen;
+
 export const selectModalContact = createSelector(
   [selectAllContacts, selectModalID],
   (contacts, id) => {

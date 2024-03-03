@@ -1,10 +1,11 @@
 .wrapper {
-  border: 1px solid black;
+  border: 2px solid rgb(152, 183, 230);
   border-radius: 4px;
   display: flex;
-  padding: 8px;
+  padding: 20px 10px;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .item {
@@ -19,10 +20,40 @@
   margin-bottom: 5px;
 }
 .button {
-  padding: 0;
+  padding: 5px;
   line-height: 0;
-  font-size: 16px;
-  padding-left: 7px;
-  padding-right: 7px;
-  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  right: 40px;
+  color: rgb(20, 20, 20, 0.4);
+  transition: color 250ms linear;
+}
+.deletButton {
+  padding: 5px;
+  line-height: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: rgb(20, 20, 20, 0.4);
+  transition: color 250ms linear;
+}
+button:hover {
+  color: rgb(20, 20, 20, 0.6);
+}
+.icon {
+  color: rgb(54, 94, 153);
+}
+.deleteIcon {
+  color: inherit;
+  /* color: rgb(20, 20, 20, 0.4); */
+}
+
+.editIcon {
+  color: inherit;
 }

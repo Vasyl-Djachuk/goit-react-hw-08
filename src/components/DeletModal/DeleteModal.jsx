@@ -26,7 +26,7 @@ const DeleteModal = () => {
       <button className={css.close} onClick={closeModal}>
         <IoIosCloseCircleOutline size="24" className={css.closeIcon} />
       </button>
-      <p className={css.text}>Do you want to delete a contact?</p>
+      <p className={css.text}> Delete a contact?</p>
       <div className={css.contact}>
         <Contact names={name} number={number} />
       </div>

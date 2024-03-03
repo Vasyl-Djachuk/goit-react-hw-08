@@ -2,6 +2,7 @@ import css from './Contact.module.css';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa6';
 import { FaRegEdit } from 'react-icons/fa';
+import { MdDeleteOutline, MdOutlineDeleteForever } from 'react-icons/md';
 
 const Contact = ({ id, names, number, handleDeleteClick, handleEdit }) => {
   return (
@@ -16,11 +17,15 @@ const Contact = ({ id, names, number, handleDeleteClick, handleEdit }) => {
           <p>{number}</p>
         </li>
       </ul>
-      <button type="button" onClick={() => handleEdit(id)}>
-        <FaRegEdit />
+      <button
+        type="button"
+        onClick={() => handleEdit(id)}
+        className={css.button}
+      >
+        <FaRegEdit size="20" className={css.editIcon} />
       </button>
-      <button onClick={() => handleDeleteClick(id)} className={css.button}>
-        Delete
+      <button onClick={() => handleDeleteClick(id)} className={css.deletButton}>
+        <MdDeleteOutline size="24" className={css.deleteIcon} />
       </button>
     </div>
   );
