@@ -6,6 +6,6 @@
   color: #2a363b;
   cursor: pointer;
 }
-
-.link.active {
+.button {
+  height: 40px;
 }

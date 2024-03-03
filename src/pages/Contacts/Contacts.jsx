@@ -23,7 +23,7 @@ export default function Contacts() {
           <title>Your tasks</title>
         </Helmet>
         <ContactForm />
-        <SearchBox />
+        {/* <SearchBox /> */}
         <div>{isLoading && 'Request in progress...'}</div>
         <ContactList />
         <ContactModal />

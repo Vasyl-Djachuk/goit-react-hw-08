@@ -4,7 +4,8 @@ import AuthNav from '../AuthNav/AuthNav';
 import { useAuth } from '../../hooks';
 import css from './AppBar.module.css';
 import AppBar from '@mui/material/AppBar';
-import { Toolbar, Typography } from '@mui/material';
+import { Button, Toolbar, Typography } from '@mui/material';
+import SearchBox from '../SearchBox/SearchBox';
 
 const AppBars = () => {
   const { isLoggedIn } = useAuth();
@@ -17,6 +18,12 @@ const AppBars = () => {
         </Typography> */}
         <div className={css.wrapper}>
           <Navigation />
+          {isLoggedIn && (
+            <div className={css.tools}>
+              <Button color={'inherit'}>Add contact</Button>
+              <SearchBox />
+            </div>
+          )}
           <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>
         </div>
       </Toolbar>

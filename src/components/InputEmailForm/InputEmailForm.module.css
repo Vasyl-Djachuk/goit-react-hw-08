@@ -1,0 +1,54 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+.input {
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  padding-left: 36px;
+  color: #212121;
+  outline: transparent;
+  border: 2px solid rgb(83, 83, 83, 0.6);
+  border-radius: 6px;
+  transition: all 250ms linear;
+}
+.input:hover {
+  border-color: rgba(20, 20, 20, 0.9);
+}
+.input:focus {
+  border: 2px solid #2196f3;
+}
+.input:focus + .label,
+.input:valid + .label {
+  left: 30px;
+  top: 0;
+  font-size: 14px;
+}
+.input:focus + .label {
+  color: #2196f3;
+}
+.label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 36px;
+  transition: all 250ms linear;
+  background-color: white;
+  padding: 0 2px;
+}
+.error {
+  position: absolute;
+  font-size: 10px;
+  color: firebrick;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.userIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #78b4e6;
+}

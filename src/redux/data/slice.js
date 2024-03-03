@@ -5,6 +5,7 @@ const dataSlice = createSlice({
   initialState: {
     passwordCheck: '',
     password: '',
+    showPassword: false,
   },
   reducers: {
     setPasswordCheck(state, action) {
@@ -13,8 +14,12 @@ const dataSlice = createSlice({
     setPassword(state, action) {
       state.password = action.payload;
     },
+    setShowPassword(state, action) {
+      state.showPassword = action.payload;
+    },
   },
 });
 
-export const { setPasswordCheck, setPassword } = dataSlice.actions;
+export const { setPasswordCheck, setPassword, setShowPassword } =
+  dataSlice.actions;
 export const dataReducer = dataSlice.reducer;

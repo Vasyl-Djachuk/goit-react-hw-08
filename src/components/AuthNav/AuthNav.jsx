@@ -1,21 +1,32 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import { Button } from '@mui/material';
 import css from './AuthNav.module.css';
 import Link from '@mui/material/Link';
 
 const AuthNav = () => {
   return (
     <>
-      <Link
-        color="inherit"
-        underline="none"
-        className={css.link}
-        href="/register"
-      >
-        Register
-      </Link>
-      <Link color="inherit" underline="none" className={css.link} href="/login">
-        Log In
-      </Link>
+      <Button color="inherit" className={css.button}>
+        <Link
+          color="inherit"
+          underline="none"
+          className={css.link}
+          href="/register"
+        >
+          Register
+        </Link>
+      </Button>
+
+      <Button color="inherit" className={css.button}>
+        <Link
+          color="inherit"
+          underline="none"
+          className={css.link}
+          href="/login"
+        >
+          Log In
+        </Link>
+      </Button>
     </>
   );
 };
