@@ -1,7 +1,10 @@
 import css from './ContactList.module.css';
 import Contact from './Contact/Contact';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectVisibleContact } from '../../redux/contacts/selectors';
+import {
+  selectLoading,
+  selectVisibleContact,
+} from '../../redux/contacts/selectors';
 import {
   setDeleteModal,
   setEditModal,
@@ -11,6 +14,7 @@ import {
 const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectVisibleContact);
+  const loding = useSelector(selectLoading);
 
   const handleDeleteClick = id => {
     dispatch(setModalId(id));
@@ -37,7 +41,7 @@ const ContactList = () => {
               </li>
             );
           })}
-        {contacts.length === 0 && (
+        {contacts.length === 0 && !loding && (
           <p className={css.noContacts}>You have no contacts.</p>
         )}
       </ul>
