@@ -6,8 +6,9 @@
 
 .username {
   font-weight: 700;
-  display: inline-block;
-  margin-right: 24px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
 }
 .userIcon {
   position: absolute;
@@ -15,4 +16,8 @@
   top: 50%;
   transform: translateY(-50%);
   color: #78b4e6;
+}
+.wrapper {
+  display: flex;
+  column-gap: 40px;
 }
