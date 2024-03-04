@@ -21,8 +21,6 @@ const Layout = () => {
     dispatch(setContactError(null));
   }, [error, dispatch]);
 
-  console.log(error);
-
   useEffect(() => {
     if (message === '') return;
     switch (message) {

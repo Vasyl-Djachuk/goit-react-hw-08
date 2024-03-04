@@ -38,12 +38,6 @@ const RegisterForm = () => {
   const passwordCheck = useSelector(selectPasswordCheck);
   const password = useSelector(selectPassword);
 
-  const handleSubmit = (values, actions) => {
-    delete values.check;
-    dispatch(register(values));
-    actions.resetForm();
-  };
-
   const handlePaswordCheck = e => {
     if (e.target.name === `password`) {
       dispatch(setPassword(e.target.value));
@@ -54,10 +48,18 @@ const RegisterForm = () => {
 
   const nameId = useId();
 
-  console.log(passwordCheck);
   const errorChek =
     passwordCheck !== '' && password.length > 0 && passwordCheck !== password;
   const checkPassIcon = password === passwordCheck && password.length > 6;
+
+  const handleSubmit = (values, actions) => {
+    console.log(checkPassIcon);
+
+    delete values.check;
+    dispatch(register(values));
+    actions.resetForm();
+  };
+
   return (
     <div className={css.comtainer}>
       <Formik
@@ -94,7 +96,11 @@ const RegisterForm = () => {
             check={true}
           />
 
-          <button className={css.button} type="submit">
+          <button
+            disabled={!checkPassIcon}
+            className={css.button}
+            type="submit"
+          >
             Register
           </button>
           <NavLink to="/login" className={css.link}>
