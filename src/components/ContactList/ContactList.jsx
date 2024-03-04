@@ -3,6 +3,7 @@ import Contact from './Contact/Contact';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectVisibleContact } from '../../redux/contacts/selectors';
 import DeleteContactModal from '../ContactModal/ContactModal';
+import { useAuth } from '../../hooks';
 import { selectDelModal } from '../../redux/modal/selectors';
 import {
   setDeleteModal,
@@ -14,6 +15,7 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectVisibleContact);
   const isDeleteModalOpen = useSelector(selectDelModal);
+  const { isRefreshing } = useAuth();
 
   const handleDeleteClick = id => {
     dispatch(setModalId(id));
@@ -40,6 +42,9 @@ const ContactList = () => {
               </li>
             );
           })}
+        {contacts.length === 0 && (
+          <p className={css.noContacts}>You have no contacts.</p>
+        )}
       </ul>
     </>
   );

@@ -48,10 +48,11 @@ const ContactForm = () => {
     if (isEditModalOpen) {
       // values.id = contact.id;
       dispatch(editContact([contact.id, values]));
-
       dispatch(setEditModal(false));
-      dispatch(refreshUser());
+      // dispatch(refreshUser());
+      return;
     } else {
+      console.log(111111111111111);
       values.id;
       dispatch(addContact(values));
       dispatch(setAddContactModal(false));

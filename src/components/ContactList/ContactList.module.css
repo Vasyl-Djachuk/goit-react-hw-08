@@ -7,3 +7,8 @@
 .item {
   width: calc((100% - 45px) / 4);
 }
+.noContacts {
+  font-size: 22px;
+  margin-right: auto;
+  margin-left: auto;
+}

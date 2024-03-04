@@ -10,6 +10,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 .tools {
   display: flex;

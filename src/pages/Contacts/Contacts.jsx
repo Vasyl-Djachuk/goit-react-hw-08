@@ -21,11 +21,9 @@ export default function Contacts() {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Your tasks</title>
+          <title>Your contacts</title>
         </Helmet>
-        {/* <ContactForm /> */}
-        {/* <SearchBox /> */}
-        <div>{isLoading && 'Request in progress...'}</div>
+        {/* <div>{isLoading && 'Request in progress...'}</div> */}
         <ContactList />
         <ContactModal />
         <AddContactModal />
