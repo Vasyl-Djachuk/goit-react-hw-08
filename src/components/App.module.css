@@ -1,4 +1,4 @@
-.main {
+/* .main {
   margin-bottom: 40px;
   color: black;
 }
@@ -13,4 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+.loader {
+  padding-top: 150px;
 }
