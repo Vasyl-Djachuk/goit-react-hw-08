@@ -4,7 +4,7 @@ import AuthNav from '../AuthNav/AuthNav';
 import { useAuth } from '../../hooks';
 import css from './AppBar.module.css';
 import AppBar from '@mui/material/AppBar';
-import { Button, Toolbar, Typography } from '@mui/material';
+import { Button, Toolbar } from '@mui/material';
 import SearchBox from '../SearchBox/SearchBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAddContactModal } from '../../redux/modal/slice';
@@ -17,8 +17,6 @@ const AppBars = () => {
   const AddModal = useSelector(selectAddModal);
   const location = useLocation();
   const isContactPage = location.pathname.includes('contacts');
-
-  // console.log(location.pathname.includes('contacts'));
 
   const toggleAddContactModal = () => {
     dispatch(setAddContactModal(!AddModal));

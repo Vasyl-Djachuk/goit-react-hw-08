@@ -1,5 +1,5 @@
 import css from './SearchBox.module.css';
-import { useId } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/filter/slice';
 import { selectFilter } from '../../redux/filter/selectors';
@@ -37,7 +37,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
+
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -48,7 +48,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchBox = () => {
-  // const id = useId();
   const dispatch = useDispatch();
   const searchValue = useSelector(selectFilter);
 
@@ -69,17 +68,6 @@ const SearchBox = () => {
           value={searchValue}
         />
       </Search>
-      {/* <form autoComplete="off">
-        <label htmlFor={id}>Find contacts by name</label>
-        <input
-          autoComplete="off"
-          className={css.input}
-          type="text"
-          value={searchValue.filter}
-          onChange={handleChange}
-          id={id}
-        />
-      </form> */}
     </div>
   );
 };

@@ -16,13 +16,12 @@ import { filterReducer } from './filter/slice';
 import { modalReducer } from './modal/slice';
 import { dataReducer } from './data/slice';
 
-// Persisting token field from auth slice to localstorage
 const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
-// const startfilterPersist = { key: 'filter', storage };
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),

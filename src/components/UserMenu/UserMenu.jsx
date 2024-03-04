@@ -14,9 +14,7 @@ const UserMenu = () => {
       <Typography sx={{ mr: 5 }} className={css.username}>
         Welcome, {user.name}
       </Typography>
-      {/* <button type="button" onClick={() => dispatch(logOut())}>
-        Logout
-      </button> */}
+
       <Button color="inherit" variant="text" onClick={() => dispatch(logOut())}>
         Logout
       </Button>

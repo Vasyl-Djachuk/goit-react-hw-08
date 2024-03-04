@@ -1,12 +1,9 @@
 import Modal from 'react-modal';
 import css from './ContactModal.module.css';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { setDeleteModal, setEditModal } from '../../redux/modal/slice';
 import { selectDelModal, selectEditModal } from '../../redux/modal/selectors';
-import { deleteContact } from '../../redux/contacts/operations';
 import DeleteModal from '../DeletModal/DeleteModal';
-
 import ContactForm from '../ContactForm/ContactForm';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 
@@ -32,11 +29,6 @@ const DeleteContactModal = () => {
     dispatch(setDeleteModal(false));
     dispatch(setEditModal(false));
   }
-
-  // function handleDeleteContact() {
-  //   dispatch(deleteContact(id));
-  //   closeModal();
-  // }
 
   return (
     <div className={css.container}>

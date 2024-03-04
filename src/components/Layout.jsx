@@ -15,10 +15,6 @@ const Layout = () => {
   const loginError = useSelector(selectAutorError);
   const error = contactError || loginError;
 
-  // useEffect(() => {
-  //   dispatch(setContactError(null));
-  // }, [error, dispatch]);
-
   useEffect(() => {
     if (!error) return;
     toast.error(error);
@@ -41,11 +37,6 @@ const Layout = () => {
         break;
     }
 
-    // if (message === 'add') {
-    //   toast.success('Successfully added!');
-    // } else {
-    //   toast.success('Deleted successfully!');
-    // }
     dispatch(setToast(''));
   }, [message, dispatch]);
   return (

@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 import css from './Navigation.module.css';
 import Link from '@mui/material/Link';

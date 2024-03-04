@@ -1,17 +1,13 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 import { FaCheck } from 'react-icons/fa6';
 import { PiLockKeyFill } from 'react-icons/pi';
-import { BiErrorCircle, BiSolidUser } from 'react-icons/bi';
+import { BiErrorCircle } from 'react-icons/bi';
 import ShowPasswordIcon from '../ShowPasswordIcon/ShowPasswordIcon';
 import { useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectShowPassword } from '../../redux/data/selectors';
 import css from './InputPasswordForm.module.css';
-import {
-  setPassword,
-  setPasswordCheck,
-  setShowPassword,
-} from '../../redux/data/slice';
+import { setShowPassword } from '../../redux/data/slice';
 
 const InputPasswordForm = ({
   handlePaswordCheck,

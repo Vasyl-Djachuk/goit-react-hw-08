@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/author/operations';
 import css from './LoginForm.module.css';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import InputEmailForm from '../InputEmailForm/InputEmailForm';
 import InputPasswordForm from '../InputPasswordForm/InputPasswordForm';
-// import { useId } from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 const contactSchema = Yup.object().shape({
@@ -25,8 +25,6 @@ const LoginForm = () => {
     email: '',
     password: '',
   };
-  // const emailId = useId();
-  // const passwordId = useId();
 
   return (
     <Formik
@@ -39,26 +37,7 @@ const LoginForm = () => {
         <p className={css.title}>Login</p>
         <InputEmailForm />
         <InputPasswordForm />
-        {/* <div className={css.label}>
-          <label htmlFor={emailId}>Email</label>
-          <Field
-            className={css.input}
-            type="email"
-            name="email"
-            id={emailId}
-          ></Field>
-          <ErrorMessage className={css.error} name="email" component="div" />
-        </div> */}
-        {/* <div className={css.label}>
-          <label htmlFor={passwordId}>Password</label>
-          <Field
-            className={css.input}
-            type="password"
-            name="password"
-            id={passwordId}
-          ></Field>
-          <ErrorMessage className={css.error} name="password" component="div" />
-        </div> */}
+
         <button className={css.button} type="submit">
           Log In
         </button>

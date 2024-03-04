@@ -2,9 +2,6 @@ import css from './ContactList.module.css';
 import Contact from './Contact/Contact';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectVisibleContact } from '../../redux/contacts/selectors';
-import DeleteContactModal from '../ContactModal/ContactModal';
-import { useAuth } from '../../hooks';
-import { selectDelModal } from '../../redux/modal/selectors';
 import {
   setDeleteModal,
   setEditModal,
@@ -14,8 +11,6 @@ import {
 const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectVisibleContact);
-  const isDeleteModalOpen = useSelector(selectDelModal);
-  const { isRefreshing } = useAuth();
 
   const handleDeleteClick = id => {
     dispatch(setModalId(id));

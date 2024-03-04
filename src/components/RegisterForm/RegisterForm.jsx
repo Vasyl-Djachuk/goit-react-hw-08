@@ -4,25 +4,17 @@ import css from './RegisterForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useId } from 'react';
-import { MdOutlineEmail } from 'react-icons/md';
-import { PiLockKeyFill } from 'react-icons/pi';
 import {
   selectPassword,
   selectPasswordCheck,
-  selectShowPassword,
 } from '../../redux/data/selectors';
-import {
-  setPassword,
-  setPasswordCheck,
-  setShowPassword,
-} from '../../redux/data/slice';
-import { BiErrorCircle, BiSolidUser } from 'react-icons/bi';
-import { FaCheck } from 'react-icons/fa6';
+import { setPassword, setPasswordCheck } from '../../redux/data/slice';
 
 import { NavLink } from 'react-router-dom';
-import ShowPasswordIcon from '../ShowPasswordIcon/ShowPasswordIcon';
+
 import InputEmailForm from '../InputEmailForm/InputEmailForm';
 import InputPasswordForm from '../InputPasswordForm/InputPasswordForm';
+import { BiSolidUser } from 'react-icons/bi';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -60,14 +52,8 @@ const RegisterForm = () => {
     }
   };
 
-  // const handleShowPassword = () => {
-  //   dispatch(setShowPassword(!showPassword));
-  // };
-
   const nameId = useId();
-  // const emailId = useId();
 
-  // const checkId = useId();
   console.log(passwordCheck);
   const errorChek =
     passwordCheck !== '' && password.length > 0 && passwordCheck !== password;
@@ -107,75 +93,6 @@ const RegisterForm = () => {
             errorChek={errorChek}
             check={true}
           />
-          {/* <div className={css.wrapper}>
-            <Field
-              className={css.input}
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              id={passwordId}
-              required
-              onInput={handlePaswordCheck}
-            ></Field>
-            <label className={css.label} htmlFor={passwordId}>
-              Password
-            </label>
-            <ErrorMessage
-              className={css.error}
-              name="password"
-              component="div"
-            />
-            <PiLockKeyFill className={css.userIcon} />
-            {checkPassIcon && <FaCheck className={css.checkOk} />}
-            {errorChek && <BiErrorCircle className={css.iconError} />}
-            <ShowPasswordIcon
-              show={showPassword}
-              handleShow={handleShowPassword}
-            />
-            {!showPassword ? (
-              <GrFormViewHide
-                onClick={handleShowPassword}
-                className={css.showPassword}
-              />
-            ) : (
-              <BiShow
-                onClick={handleShowPassword}
-                className={css.showPassword}
-              />
-            )}
-          </div> */}
-
-          {/* <div className={css.wrapper}>
-            <Field
-              className={css.input}
-              type={showPassword ? 'text' : 'password'}
-              name="check"
-              id={checkId}
-              required
-              onInput={handlePaswordCheck}
-            ></Field>
-            <label className={css.label} htmlFor={checkId}>
-              Repeat password
-            </label>
-            <ErrorMessage className={css.error} name="check" component="div" />
-            {checkPassIcon && <FaCheck className={css.checkOk} />}
-            {errorChek && <BiErrorCircle className={css.iconError} />}
-            <ShowPasswordIcon
-              show={showPassword}
-              handleShow={handleShowPassword}
-            />
-            {!showPassword ? (
-              <GrFormViewHide
-                onClick={handleShowPassword}
-                className={css.showPassword}
-              />
-            ) : (
-              <BiShow
-                onClick={handleShowPassword}
-                className={css.showPassword}
-              />
-            )}
-            <PiLockKeyFill className={css.userIcon} />
-          </div> */}
 
           <button className={css.button} type="submit">
             Register

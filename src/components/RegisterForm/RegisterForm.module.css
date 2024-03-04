@@ -8,7 +8,6 @@
 }
 .form {
   width: 400px;
-  /* display: block; */
 }
 .input {
   width: 100%;
@@ -71,8 +70,7 @@
   transform: translateY(-50%);
   right: 50px;
   color: firebrick;
-  /* width: 22px;
-  height: 22px; */
+
   size: 22px;
 }
 .checkOk {
@@ -82,15 +80,7 @@
   right: 50px;
   color: forestgreen;
 }
-/* .showPassword {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 8px;
-  cursor: pointer;
-  width: 22px;
-  height: 22px;
-} */
+
 .button {
   border: none;
   width: 100%;
